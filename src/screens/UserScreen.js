@@ -12,7 +12,7 @@ export default function HomeScreen() {
     if(isLoading){
         return(
             <View style={styles.container}>
-                <ActivityIndicator size={'large'}/ >
+                <ActivityIndicator size={'large'}/>
                 <Text>Carregando usuário {}...</Text>
             </View>
         )
