@@ -12,7 +12,7 @@ export default function HomeScreen() {
     if(isLoading){
         return(
             <View style={styles.container}>
-                <ActivityIndicator size={'large'}/ >
+                <ActivityIndicator size={'large'}/>
                 <Text>Carregando usuários...</Text>
             </View>
         )
@@ -29,8 +29,9 @@ export default function HomeScreen() {
   return (
     <SafeAreaView>
         <View style={[styles.linha, styles.cabecalho]}>
-            <Text style={styles.celula}>Nome</Text>
-            <Text style={styles.celula}>E-Mail</Text>
+            <Text style={styles.cabecalho}>Nome</Text>
+            <Text style={styles.cabecalho}>E-mail</Text>
+            <Text style={styles.cabecalho}>Endereço</Text>
         </View>
         <FlatList
             data={data}
@@ -41,6 +42,7 @@ export default function HomeScreen() {
                     <View style={styles.linha}>
                         <Text style={styles.celula}>{item.name}</Text>
                         <Text style={styles.celula}>{item.email}</Text>
+                        <Text style={styles.celula}>{item.address.street}{item.address.city}</Text> 
                     </View>
                 </TouchableOpacity>
             )}
@@ -52,22 +54,36 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
-    container:{
-        flex:1,
-        justifyContent:'center',
-        alignItems:'center'
-    },
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#fff', 
+        paddingHorizontal: 16, 
+        },
     linha: {
         flexDirection: 'row',
+        alignItems: 'center',
         borderBottomWidth: 1,
-        borderBottomColor: '#ccc'
+        borderBottomColor: '#ddd', 
+        paddingVertical: 8,
     },
     cabecalho: {
-        backgroundColor: '#f2f2f2'
+        flex: 1,
+        textAlign: 'center',
+        fontWeight: 'bold',
+        backgroundColor: '#4682B4', 
+        color: '#ffffff',
+        borderTopLeftRadius: 4,
+        borderTopRightRadius: 4,
     },
     celula: {
         flex: 1,
-        padding: 10,
-        textAlign: 'center'
+        paddingVertical: 12,
+        paddingHorizontal: 8,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        fontSize: 14,
+        color: '#000000', 
     }
-})
+});

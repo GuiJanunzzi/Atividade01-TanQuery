@@ -31,6 +31,7 @@ export default function HomeScreen() {
         <View style={[styles.linha, styles.cabecalho]}>
             <Text style={styles.celula}>Nome</Text>
             <Text style={styles.celula}>E-Mail</Text>
+            <Text style={styles.celula}>Endereço</Text>
         </View>
         <FlatList
             data={data}
@@ -41,6 +42,7 @@ export default function HomeScreen() {
                     <View style={styles.linha}>
                         <Text style={styles.celula}>{item.name}</Text>
                         <Text style={styles.celula}>{item.email}</Text>
+                        <Text style={styles.celula}>{item.address}</Text>
                     </View>
                 </TouchableOpacity>
             )}
@@ -52,22 +54,31 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
-    container:{
-        flex:1,
-        justifyContent:'center',
-        alignItems:'center'
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#fff', // Cor de fundo neutra
+        paddingHorizontal: 16,   // Espaçamento lateral
     },
     linha: {
         flexDirection: 'row',
+        alignItems: 'center',
         borderBottomWidth: 1,
-        borderBottomColor: '#ccc'
+        borderBottomColor: '#ddd', // Um tom mais suave que #ccc
+        paddingVertical: 8,
     },
     cabecalho: {
-        backgroundColor: '#f2f2f2'
+        backgroundColor: '#e6e6e6', // Um pouco mais escuro que #f2f2f2 para contraste
+        borderTopLeftRadius: 4,
+        borderTopRightRadius: 4,
     },
     celula: {
         flex: 1,
-        padding: 10,
-        textAlign: 'center'
+        paddingVertical: 12,
+        paddingHorizontal: 8,
+        textAlign: 'center',
+        fontSize: 14,
+        color: '#333', // Melhor contraste para leitura
     }
-})
+});
