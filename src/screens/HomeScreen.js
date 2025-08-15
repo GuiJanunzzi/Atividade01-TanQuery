@@ -38,13 +38,11 @@ export default function HomeScreen() {
             refreshing={isFetching}
             onRefresh={refetch}
             renderItem={({item})=>(
-                <TouchableOpacity style={{}}>
-                    <View style={styles.linha}>
-                        <Text style={styles.celula}>{item.name}</Text>
-                        <Text style={styles.celula}>{item.email}</Text>
-                        <Text style={styles.celula}>{item.address.street}{item.address.city}</Text> 
-                    </View>
-                </TouchableOpacity>
+                <View style={styles.linha}>
+                    <Text style={styles.celula}>{item.name}</Text>
+                    <Text style={styles.celula}>{item.email}</Text>
+                    <Text style={styles.celula}>{item.address.city}</Text> 
+                </View>
             )}
         />
 
